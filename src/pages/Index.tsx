@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Header } from '@/components/Header';
 import { HeroSection } from '@/components/HeroSection';
@@ -12,11 +13,11 @@ const Index = () => {
   };
 
   return (
-    <main className="w-full h-screen relative bg-white overflow-hidden">
-      <div className="w-[calc(100%-80px)] h-[calc(100vh-80px)] relative left-10 top-10">
+    <main className="w-full min-h-screen relative bg-white overflow-hidden flex justify-center">
+      <div className="w-full max-w-[1360px] h-screen relative mb-10">
         
         {/* Background Image */}
-        <div className="absolute inset-0 rounded-[30px] overflow-hidden">
+        <div className="absolute inset-0 rounded-[30px] overflow-hidden mx-10 my-10">
           <img
             src="https://api.builder.io/api/v1/image/assets/TEMP/76df173f9b571f830a99295bba92a018e76d7e48?width=2720"
             alt="Background gradient"

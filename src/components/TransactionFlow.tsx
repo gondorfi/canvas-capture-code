@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 
 interface TransactionFlowProps {
   className?: string;
@@ -19,6 +20,21 @@ export const TransactionFlow: React.FC<TransactionFlowProps> = ({ className = ''
     borrowAsset: 'USDC'
   });
 
+  const [isUserInputting, setIsUserInputting] = useState(false);
+  const [animatedBorrowAmount, setAnimatedBorrowAmount] = useState(130.10);
+
+  // Animation for borrow input
+  useEffect(() => {
+    if (!isUserInputting) {
+      const interval = setInterval(() => {
+        const randomAmount = Math.random() * 1000;
+        setAnimatedBorrowAmount(parseFloat(randomAmount.toFixed(2)));
+      }, 500);
+
+      return () => clearInterval(interval);
+    }
+  }, [isUserInputting]);
+
   const handleDepositChange = (value: string) => {
     const numValue = parseFloat(value) || 0;
     setTransactionData(prev => ({
@@ -37,6 +53,10 @@ export const TransactionFlow: React.FC<TransactionFlowProps> = ({ className = ''
     }));
   };
 
+  const handleBorrowFocus = () => {
+    setIsUserInputting(true);
+  };
+
   const [isSimulating, setIsSimulating] = useState(false);
 
   const handleSimulateTransaction = () => {
@@ -46,6 +66,8 @@ export const TransactionFlow: React.FC<TransactionFlowProps> = ({ className = ''
       console.log('Transaction simulation completed');
     }, 2000);
   };
+
+  const displayBorrowAmount = isUserInputting ? transactionData.borrowAmount : animatedBorrowAmount;
 
   return (
     <section className={`${className}`} aria-label="Transaction flow visualization">
@@ -96,12 +118,12 @@ export const TransactionFlow: React.FC<TransactionFlowProps> = ({ className = ''
           </div>
         </div>
 
-        {/* Transfer Arrow */}
+        {/* Transfer Arrow - removed hover animation */}
         <div className="w-[77px] h-[76px] relative max-md:w-[50px] max-md:h-[50px] max-sm:w-10 max-sm:h-10">
           <button
             onClick={handleSimulateTransaction}
             disabled={isSimulating}
-            className={`w-full h-full transition-transform duration-200 hover:scale-110 ${isSimulating ? 'animate-pulse' : ''}`}
+            className={`w-full h-full ${isSimulating ? 'animate-pulse' : ''}`}
             aria-label="Simulate transaction"
           >
             <svg 
@@ -131,8 +153,9 @@ export const TransactionFlow: React.FC<TransactionFlowProps> = ({ className = ''
               </label>
               <input
                 type="number"
-                value={transactionData.borrowAmount}
+                value={displayBorrowAmount}
                 onChange={(e) => handleBorrowChange(e.target.value)}
+                onFocus={handleBorrowFocus}
                 className="bg-transparent text-white text-right text-2xl font-medium max-sm:text-xl border-none outline-none w-full [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                 step="0.01"
               />
