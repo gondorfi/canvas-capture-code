@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import LiquidGlass from 'liquid-glass-react';
 
 interface CTAButtonProps {
   className?: string;
@@ -20,12 +19,11 @@ export const CTAButton: React.FC<CTAButtonProps> = ({ className = '', onClick })
 
   return (
     <div className={`absolute left-[573px] top-[476px] max-md:-translate-x-2/4 max-md:left-2/4 max-md:top-[380px] max-sm:top-[280px] ${className}`}>
-      <LiquidGlass>
-        <button
+      <button
           onClick={handleClick}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
-          className="flex w-[215px] h-[60px] justify-between items-center cursor-pointer bg-white/20 backdrop-blur-md border border-white/30 hover:bg-white/30 hover:backdrop-blur-lg transition-all duration-200 pl-[45px] pr-2.5 py-2.5 rounded-[130px] shadow-lg shadow-black/10 max-md:w-[180px] max-md:h-[50px] max-md:pl-[35px] max-md:pr-2 max-md:py-2 max-sm:w-40 max-sm:h-[45px] max-sm:text-base"
+          className="flex w-[215px] h-[60px] justify-between items-center cursor-pointer bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/20 hover:backdrop-blur-2xl transition-all duration-300 pl-[45px] pr-2.5 py-2.5 rounded-[130px] shadow-2xl shadow-black/20 hover:shadow-white/10 hover:shadow-lg max-md:w-[180px] max-md:h-[50px] max-md:pl-[35px] max-md:pr-2 max-md:py-2 max-sm:w-40 max-sm:h-[45px] max-sm:text-base"
           aria-label="Launch the application"
         >
       <div className="flex items-center gap-1.5">
@@ -48,8 +46,7 @@ export const CTAButton: React.FC<CTAButtonProps> = ({ className = '', onClick })
           />
         </svg>
       </div>
-        </button>
-      </LiquidGlass>
+      </button>
     </div>
   );
 };
