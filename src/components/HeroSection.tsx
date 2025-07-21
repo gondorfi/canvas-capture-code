@@ -12,7 +12,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ className = '' }) => {
         <TypeAnimation
           preRenderFirstString={true}
           sequence={[
-            500,
             'Borrow against your Polymarket positions',
             1000,
             'Lend against your Polymarket positions',
@@ -20,7 +19,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ className = '' }) => {
             'Borrow against your Polymarket positions',
             1000,
             'Lend against your Polymarket positions',
-            500,
+            1000,
           ]}
           speed={50}
           repeat={Infinity}
