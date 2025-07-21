@@ -13,18 +13,14 @@ const Index = () => {
   };
 
   return (
-    <main className="w-full min-h-screen relative bg-white overflow-hidden flex justify-center">
-      <div className="w-full max-w-[1360px] h-screen relative mb-10">
+    <main className="w-full min-h-screen relative bg-white overflow-hidden flex justify-center p-10">
+      <div className="w-full max-w-[1360px] relative mb-10 bg-gray-900 rounded-[30px] overflow-hidden p-10" style={{
+        backgroundImage: "url('https://api.builder.io/api/v1/image/assets/TEMP/76df173f9b571f830a99295bba92a018e76d7e48?width=2720')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}>
         
-        {/* Background Image */}
-        <div className="absolute inset-0 rounded-[30px] overflow-hidden mx-10 my-10">
-          <img
-            src="https://api.builder.io/api/v1/image/assets/TEMP/76df173f9b571f830a99295bba92a018e76d7e48?width=2720"
-            alt="Background gradient"
-            className="w-full h-full object-cover"
-          />
-        </div>
-
         {/* Header */}
         <Header />
 

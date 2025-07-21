@@ -36,7 +36,7 @@ export const TransactionFlow: React.FC<TransactionFlowProps> = ({ className = ''
           depositAmount: depositAmount,
           borrowAmount: parseFloat((depositAmount * 0.65).toFixed(2))
         }));
-      }, 500);
+      }, 1000);
 
       return () => clearInterval(interval);
     }
