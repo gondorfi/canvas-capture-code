@@ -18,31 +18,6 @@ export const Header: React.FC<HeaderProps> = ({ className = '' }) => {
         />
       </div>
 
-      {/* Typing Animation */}
-      <div className="absolute right-[100px] top-[50px] max-md:right-[5%] max-md:top-[70px] max-sm:right-[5%] max-sm:top-[60px]">
-        <TypeAnimation
-          preRenderFirstString={true}
-          sequence={[
-            500,
-            'Borrow against your Polymarket positions',
-            1000,
-            'Lend against your Polymarket positions',
-            1000,
-            'Borrow against your Polymarket positions',
-            1000,
-            'Lend against your Polymarket positions',
-            500,
-          ]}
-          speed={50}
-          style={{ 
-            fontSize: '1.2em',
-            color: 'white',
-            fontWeight: '500'
-          }}
-          className="max-md:text-base max-sm:text-sm"
-          repeat={Infinity}
-        />
-      </div>
     </header>
   );
 };
