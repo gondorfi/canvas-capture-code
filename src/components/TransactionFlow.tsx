@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import LiquidGlass from 'liquid-glass-react';
 
 interface TransactionFlowProps {
   className?: string;
@@ -49,7 +50,9 @@ export const TransactionFlow: React.FC<TransactionFlowProps> = ({ className = ''
 
   return (
     <section className={`${className}`} aria-label="Transaction flow visualization">
-      <div className="inline-flex items-center gap-[41px] absolute w-[567px] h-[116px] bg-[rgba(255,255,255,0.30)] p-5 rounded-[20px] left-[397px] top-[624px] max-md:w-[90%] max-md:h-auto max-md:gap-[25px] max-md:flex-col max-md:p-[15px] max-md:left-[5%] max-md:top-[460px] max-sm:gap-[15px] max-sm:p-3 max-sm:top-[350px]">
+      <div className="absolute left-[397px] top-[624px] max-md:left-[5%] max-md:top-[460px] max-sm:top-[350px]">
+        <LiquidGlass>
+          <div className="inline-flex items-center gap-[41px] w-[567px] h-[116px] bg-white/30 p-5 rounded-[20px] max-md:w-[90vw] max-md:h-auto max-md:gap-[25px] max-md:flex-col max-md:p-[15px] max-sm:gap-[15px] max-sm:p-3">
         
         {/* Deposit Section */}
         <div className="flex items-center gap-[18px] max-md:w-full">
@@ -78,7 +81,7 @@ export const TransactionFlow: React.FC<TransactionFlowProps> = ({ className = ''
                 type="number"
                 value={transactionData.depositAmount}
                 onChange={(e) => handleDepositChange(e.target.value)}
-                className="bg-transparent text-white text-right text-2xl font-medium max-sm:text-xl border-none outline-none w-full"
+                className="bg-transparent text-white text-left text-2xl font-medium max-sm:text-xl border-none outline-none w-full [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                 step="0.01"
               />
               <div className="flex items-center gap-[7px]">
@@ -96,7 +99,7 @@ export const TransactionFlow: React.FC<TransactionFlowProps> = ({ className = ''
         </div>
 
         {/* Transfer Arrow */}
-        <div className="w-[77px] h-[76px] relative max-md:rotate-90 max-md:w-[50px] max-md:h-[50px] max-sm:w-10 max-sm:h-10">
+        <div className="w-[77px] h-[76px] relative max-md:w-[50px] max-md:h-[50px] max-sm:w-10 max-sm:h-10">
           <button
             onClick={handleSimulateTransaction}
             disabled={isSimulating}
@@ -109,7 +112,7 @@ export const TransactionFlow: React.FC<TransactionFlowProps> = ({ className = ''
               viewBox="0 0 40 40" 
               fill="none" 
               xmlns="http://www.w3.org/2000/svg"
-              className="w-[40px] h-[40px] transform rotate-[-90deg] absolute left-[19px] top-[18px]"
+              className="w-[40px] h-[40px] absolute left-[19px] top-[18px]"
             >
               <path 
                 d="M19.8286 19.9995C19.8286 19.6953 19.9295 19.4501 20.1294 19.2504C20.3297 19.0505 20.5748 18.9496 20.8784 18.9496H32.0366L31.6958 18.6088L24.4429 11.3393L24.4419 11.3383C24.2514 11.1501 24.1548 10.9174 24.1548 10.6254C24.1548 10.3377 24.2572 10.0918 24.4692 9.87836C24.6554 9.69089 24.8918 9.59418 25.1948 9.59418C25.497 9.59421 25.7354 9.69137 25.9253 9.88129L35.0894 19.0864C35.1947 19.1919 35.2764 19.2996 35.3364 19.4086L35.3892 19.518C35.451 19.6668 35.4829 19.8278 35.4829 20.0024C35.4829 20.1767 35.4506 20.336 35.3892 20.4828C35.3433 20.5919 35.2769 20.7004 35.187 20.8071L35.0894 20.9135L25.9253 30.102C25.7343 30.293 25.4954 30.3931 25.1938 30.3979C24.8952 30.4023 24.6472 30.3088 24.439 30.1157L24.4399 30.1147C24.22 29.9039 24.117 29.6598 24.1216 29.3715C24.1261 29.0782 24.2313 28.8304 24.4429 28.6186L31.6802 21.3911L32.022 21.0502H20.8784C20.5749 21.0502 20.3297 20.9496 20.1294 20.7495C19.9293 20.5491 19.8286 20.3033 19.8286 19.9995ZM11.4946 19.9995C11.4947 19.6953 11.5955 19.4501 11.7954 19.2504C11.9958 19.0503 12.2416 18.9496 12.5454 18.9496H15.061C15.3595 18.9497 15.6002 19.0505 15.7974 19.2504C15.995 19.4506 16.0952 19.6959 16.0952 20.0004C16.0952 20.3045 15.9946 20.5497 15.7944 20.7495C15.5944 20.9494 15.3491 21.0502 15.0454 21.0502H12.5454C12.2417 21.0502 11.9958 20.9498 11.7954 20.7495C11.5953 20.5491 11.4946 20.3033 11.4946 19.9995ZM4.82861 19.9995C4.82864 19.6953 4.92947 19.4501 5.12939 19.2504C5.3297 19.0505 5.57476 18.9496 5.87842 18.9496H6.72803C6.98909 18.9497 7.20593 19.027 7.38818 19.1801L7.46436 19.2504C7.66192 19.4506 7.76221 19.6959 7.76221 20.0004C7.7622 20.3045 7.66065 20.5497 7.46045 20.7495C7.26042 20.9494 7.01517 21.0502 6.71143 21.0502H5.87842C5.57487 21.0502 5.3297 20.9496 5.12939 20.7495C4.92926 20.5491 4.82861 20.3033 4.82861 19.9995Z" 
@@ -132,7 +135,7 @@ export const TransactionFlow: React.FC<TransactionFlowProps> = ({ className = ''
                 type="number"
                 value={transactionData.borrowAmount}
                 onChange={(e) => handleBorrowChange(e.target.value)}
-                className="bg-transparent text-white text-right text-2xl font-medium max-sm:text-xl border-none outline-none w-full"
+                className="bg-transparent text-white text-right text-2xl font-medium max-sm:text-xl border-none outline-none w-full [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                 step="0.01"
               />
               <div className="flex items-center gap-[7px]">
@@ -164,6 +167,8 @@ export const TransactionFlow: React.FC<TransactionFlowProps> = ({ className = ''
             </svg>
           </div>
         </div>
+          </div>
+        </LiquidGlass>
       </div>
     </section>
   );

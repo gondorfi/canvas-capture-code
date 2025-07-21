@@ -12,11 +12,11 @@ const Index = () => {
   };
 
   return (
-    <main className="w-full h-[900px] relative bg-white max-md:h-auto max-md:min-h-screen">
-      <div className="w-[1360px] h-[820px] relative left-10 top-10 max-md:w-[calc(100%_-_40px)] max-md:h-auto max-md:min-h-[calc(100vh_-_80px)] max-md:left-5 max-md:top-5 max-sm:w-[calc(100%_-_20px)] max-sm:min-h-[calc(100vh_-_20px)] max-sm:left-2.5 max-sm:top-2.5">
+    <main className="w-full h-screen relative bg-white overflow-hidden">
+      <div className="w-[calc(100%-80px)] h-[calc(100vh-80px)] relative left-10 top-10">
         
         {/* Background Image */}
-        <div className="absolute inset-0 rounded-[30px] max-md:rounded-[20px] max-sm:rounded-[15px] overflow-hidden">
+        <div className="absolute inset-0 rounded-[30px] overflow-hidden">
           <img
             src="https://api.builder.io/api/v1/image/assets/TEMP/76df173f9b571f830a99295bba92a018e76d7e48?width=2720"
             alt="Background gradient"

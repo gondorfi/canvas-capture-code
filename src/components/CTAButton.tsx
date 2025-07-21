@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import LiquidGlass from 'liquid-glass-react';
 
 interface CTAButtonProps {
   className?: string;
@@ -18,19 +19,21 @@ export const CTAButton: React.FC<CTAButtonProps> = ({ className = '', onClick })
   };
 
   return (
-    <button
-      onClick={handleClick}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className={`flex w-[215px] h-[60px] justify-between items-center cursor-pointer bg-white/20 backdrop-blur-md border border-white/30 hover:bg-white/30 hover:backdrop-blur-lg transition-all duration-200 pl-[45px] pr-2.5 py-2.5 rounded-[130px] absolute left-[573px] top-[476px] shadow-lg shadow-black/10 max-md:-translate-x-2/4 max-md:w-[180px] max-md:h-[50px] max-md:pl-[35px] max-md:pr-2 max-md:py-2 max-md:left-2/4 max-md:top-[380px] max-sm:w-40 max-sm:h-[45px] max-sm:text-base max-sm:top-[280px] ${className}`}
-      aria-label="Launch the application"
-    >
+    <div className={`absolute left-[573px] top-[476px] max-md:-translate-x-2/4 max-md:left-2/4 max-md:top-[380px] max-sm:top-[280px] ${className}`}>
+      <LiquidGlass>
+        <button
+          onClick={handleClick}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          className="flex w-[215px] h-[60px] justify-between items-center cursor-pointer bg-white/20 backdrop-blur-md border border-white/30 hover:bg-white/30 hover:backdrop-blur-lg transition-all duration-200 pl-[45px] pr-2.5 py-2.5 rounded-[130px] shadow-lg shadow-black/10 max-md:w-[180px] max-md:h-[50px] max-md:pl-[35px] max-md:pr-2 max-md:py-2 max-sm:w-40 max-sm:h-[45px] max-sm:text-base"
+          aria-label="Launch the application"
+        >
       <div className="flex items-center gap-1.5">
         <span className="text-white text-lg font-medium">
           Launch App
         </span>
       </div>
-      <div className={`transition-transform duration-200 ${isHovered ? 'translate-x-1 rotate-45' : ''}`}>
+      <div className={`transition-transform duration-200 ${isHovered ? 'translate-x-1 -rotate-45' : ''}`}>
         <svg 
           width="39" 
           height="38" 
@@ -45,6 +48,8 @@ export const CTAButton: React.FC<CTAButtonProps> = ({ className = '', onClick })
           />
         </svg>
       </div>
-    </button>
+        </button>
+      </LiquidGlass>
+    </div>
   );
 };
