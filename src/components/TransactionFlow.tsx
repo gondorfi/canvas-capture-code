@@ -20,20 +20,27 @@ export const TransactionFlow: React.FC<TransactionFlowProps> = ({ className = ''
     borrowAsset: 'USDC'
   });
 
-  const [isUserInputting, setIsUserInputting] = useState(false);
-  const [animatedBorrowAmount, setAnimatedBorrowAmount] = useState(130.10);
+  const [isUserInputtingDeposit, setIsUserInputtingDeposit] = useState(false);
+  const [isUserInputtingBorrow, setIsUserInputtingBorrow] = useState(false);
+  const [animatedDepositAmount, setAnimatedDepositAmount] = useState(200.16);
 
-  // Animation for borrow input
+  // Animation for deposit input
   useEffect(() => {
-    if (!isUserInputting) {
+    if (!isUserInputtingDeposit) {
       const interval = setInterval(() => {
-        const randomAmount = Math.random() * 1000;
-        setAnimatedBorrowAmount(parseFloat(randomAmount.toFixed(2)));
+        const randomAmount = Math.random() * 100000;
+        const depositAmount = parseFloat(randomAmount.toFixed(2));
+        setAnimatedDepositAmount(depositAmount);
+        setTransactionData(prev => ({
+          ...prev,
+          depositAmount: depositAmount,
+          borrowAmount: parseFloat((depositAmount * 0.65).toFixed(2))
+        }));
       }, 500);
 
       return () => clearInterval(interval);
     }
-  }, [isUserInputting]);
+  }, [isUserInputtingDeposit]);
 
   const handleDepositChange = (value: string) => {
     const numValue = parseFloat(value) || 0;
@@ -42,6 +49,10 @@ export const TransactionFlow: React.FC<TransactionFlowProps> = ({ className = ''
       depositAmount: numValue,
       borrowAmount: parseFloat((numValue * 0.65).toFixed(2))
     }));
+  };
+
+  const handleDepositFocus = () => {
+    setIsUserInputtingDeposit(true);
   };
 
   const handleBorrowChange = (value: string) => {
@@ -54,7 +65,7 @@ export const TransactionFlow: React.FC<TransactionFlowProps> = ({ className = ''
   };
 
   const handleBorrowFocus = () => {
-    setIsUserInputting(true);
+    setIsUserInputtingBorrow(true);
   };
 
   const [isSimulating, setIsSimulating] = useState(false);
@@ -67,7 +78,7 @@ export const TransactionFlow: React.FC<TransactionFlowProps> = ({ className = ''
     }, 2000);
   };
 
-  const displayBorrowAmount = isUserInputting ? transactionData.borrowAmount : animatedBorrowAmount;
+  const displayDepositAmount = isUserInputtingDeposit ? transactionData.depositAmount : animatedDepositAmount;
 
   return (
     <section className={`${className}`} aria-label="Transaction flow visualization">
@@ -99,8 +110,9 @@ export const TransactionFlow: React.FC<TransactionFlowProps> = ({ className = ''
               </label>
               <input
                 type="number"
-                value={transactionData.depositAmount}
+                value={displayDepositAmount}
                 onChange={(e) => handleDepositChange(e.target.value)}
+                onFocus={handleDepositFocus}
                 className="bg-transparent text-white text-left text-2xl font-medium max-sm:text-xl border-none outline-none w-full [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                 step="0.01"
               />
@@ -153,7 +165,7 @@ export const TransactionFlow: React.FC<TransactionFlowProps> = ({ className = ''
               </label>
               <input
                 type="number"
-                value={displayBorrowAmount}
+                value={transactionData.borrowAmount}
                 onChange={(e) => handleBorrowChange(e.target.value)}
                 onFocus={handleBorrowFocus}
                 className="bg-transparent text-white text-right text-2xl font-medium max-sm:text-xl border-none outline-none w-full [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"

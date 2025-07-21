@@ -11,30 +11,11 @@ export const Header: React.FC<HeaderProps> = ({ className = '' }) => {
     <header className={`absolute z-10 w-full ${className}`}>
       {/* Logo */}
       <div className="absolute left-[585px] top-10 max-md:-translate-x-2/4 max-md:left-2/4 max-md:top-[30px] max-sm:top-5">
-        <svg 
-          width="190" 
-          height="41" 
-          viewBox="0 0 190 41" 
-          fill="none" 
-          xmlns="http://www.w3.org/2000/svg"
-          className="max-md:w-[150px] max-md:h-8 max-sm:w-[120px] max-sm:h-[26px]"
-        >
-          <path 
-            d="M20 0L40 20L20 40L0 20L20 0Z" 
-            fill="white" 
-            fillOpacity="0.9"
-          />
-          <text 
-            x="60" 
-            y="25" 
-            fill="white" 
-            fontSize="16" 
-            fontWeight="600"
-            fontFamily="system-ui, -apple-system, sans-serif"
-          >
-            GONDOR
-          </text>
-        </svg>
+        <img
+          src="/lovable-uploads/0ec0c153-fceb-42a6-844f-1dad3e15829c.png"
+          alt="Gondor Logo"
+          className="h-10 w-auto max-md:h-8 max-sm:h-6"
+        />
       </div>
 
       {/* Typing Animation */}
@@ -43,13 +24,13 @@ export const Header: React.FC<HeaderProps> = ({ className = '' }) => {
           preRenderFirstString={true}
           sequence={[
             500,
-            'Borrow against your positions',
+            'Borrow against your Polymarket positions',
             1000,
-            'Lend to earn yield',
+            'Lend against your Polymarket positions',
             1000,
-            'Borrow against your positions',
+            'Borrow against your Polymarket positions',
             1000,
-            'Lend to earn yield',
+            'Lend against your Polymarket positions',
             500,
           ]}
           speed={50}
