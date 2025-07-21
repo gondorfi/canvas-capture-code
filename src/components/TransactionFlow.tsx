@@ -5,19 +5,37 @@ interface TransactionFlowProps {
 }
 
 interface TransactionData {
-  depositAmount: string;
-  borrowAmount: string;
+  depositAmount: number;
+  borrowAmount: number;
   depositAsset: string;
   borrowAsset: string;
 }
 
 export const TransactionFlow: React.FC<TransactionFlowProps> = ({ className = '' }) => {
   const [transactionData, setTransactionData] = useState<TransactionData>({
-    depositAmount: '200.16',
-    borrowAmount: '200.16',
+    depositAmount: 200.16,
+    borrowAmount: 130.10,
     depositAsset: 'Yes shares',
     borrowAsset: 'USDC'
   });
+
+  const handleDepositChange = (value: string) => {
+    const numValue = parseFloat(value) || 0;
+    setTransactionData(prev => ({
+      ...prev,
+      depositAmount: numValue,
+      borrowAmount: parseFloat((numValue * 0.65).toFixed(2))
+    }));
+  };
+
+  const handleBorrowChange = (value: string) => {
+    const numValue = parseFloat(value) || 0;
+    setTransactionData(prev => ({
+      ...prev,
+      borrowAmount: numValue,
+      depositAmount: parseFloat((numValue / 0.65).toFixed(2))
+    }));
+  };
 
   const [isSimulating, setIsSimulating] = useState(false);
 
@@ -56,9 +74,13 @@ export const TransactionFlow: React.FC<TransactionFlowProps> = ({ className = ''
               <label className="w-[110px] text-white text-sm font-light max-sm:text-xs">
                 Deposit
               </label>
-              <div className="text-white text-right text-2xl font-medium max-sm:text-xl">
-                {transactionData.depositAmount}
-              </div>
+              <input
+                type="number"
+                value={transactionData.depositAmount}
+                onChange={(e) => handleDepositChange(e.target.value)}
+                className="bg-transparent text-white text-right text-2xl font-medium max-sm:text-xl border-none outline-none w-full"
+                step="0.01"
+              />
               <div className="flex items-center gap-[7px]">
                 <img
                   src="https://api.builder.io/api/v1/image/assets/TEMP/801234e8fef88b819ad0fd326787841f3275129e?width=36"
@@ -106,9 +128,13 @@ export const TransactionFlow: React.FC<TransactionFlowProps> = ({ className = ''
               <label className="w-[110px] text-white text-right text-sm font-light max-sm:text-xs">
                 Borrow
               </label>
-              <div className="text-white text-right text-2xl font-medium max-sm:text-xl">
-                {transactionData.borrowAmount}
-              </div>
+              <input
+                type="number"
+                value={transactionData.borrowAmount}
+                onChange={(e) => handleBorrowChange(e.target.value)}
+                className="bg-transparent text-white text-right text-2xl font-medium max-sm:text-xl border-none outline-none w-full"
+                step="0.01"
+              />
               <div className="flex items-center gap-[7px]">
                 <span className="text-white text-sm font-light max-sm:text-xs">
                   {transactionData.borrowAsset}
