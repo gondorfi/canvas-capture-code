@@ -118,7 +118,7 @@ export const TransactionFlow: React.FC<TransactionFlowProps> = ({ className = ''
               />
               <div className="flex items-center gap-[7px]">
                 <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/801234e8fef88b819ad0fd326787841f3275129e?width=36"
+                  src="/lovable-uploads/4c53f0e0-7807-4c07-b746-e7ccd0570bbc.png"
                   alt="Asset icon"
                   className="w-[18px] h-[18px] rounded-[300px] max-sm:w-4 max-sm:h-4"
                 />
