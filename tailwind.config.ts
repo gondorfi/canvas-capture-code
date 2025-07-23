@@ -19,7 +19,9 @@ export default {
 		},
 		extend: {
 			fontFamily: {
+				'sans': ['Matter', 'system-ui', 'sans-serif'],
 				'apple-garamond': ['Apple Garamond', 'serif'],
+				'matter': ['Matter', 'system-ui', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
