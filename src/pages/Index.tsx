@@ -1,9 +1,7 @@
 
 import React from 'react';
 import { Header } from '@/components/Header';
-import { HeroSection } from '@/components/HeroSection';
-import { DescriptionSection } from '@/components/DescriptionSection';
-import { CTAButton } from '@/components/CTAButton';
+import { CenteredHeroContent } from '@/components/CenteredHeroContent';
 import { TransactionFlow } from '@/components/TransactionFlow';
 
 const Index = () => {
@@ -24,14 +22,8 @@ const Index = () => {
         {/* Header */}
         <Header />
 
-        {/* Hero Section */}
-        <HeroSection />
-
-        {/* Description Section */}
-        <DescriptionSection />
-
-        {/* CTA Button */}
-        <CTAButton onClick={handleLaunchApp} />
+        {/* Centered Hero Content */}
+        <CenteredHeroContent onLaunchApp={handleLaunchApp} />
 
         {/* Transaction Flow */}
         <TransactionFlow />
