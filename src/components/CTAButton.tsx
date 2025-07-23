@@ -18,7 +18,7 @@ export const CTAButton: React.FC<CTAButtonProps> = ({ className = '', onClick })
   };
 
   return (
-    <div className={`absolute left-1/2 transform -translate-x-1/2 top-[374px] max-md:top-[278px] max-sm:top-[278px] ${className}`}>
+    <div className={`absolute left-1/2 transform -translate-x-1/2 top-[424px] max-md:top-[328px] max-sm:top-[278px] ${className}`}>
       <button
           onClick={handleClick}
           onMouseEnter={() => setIsHovered(true)}
