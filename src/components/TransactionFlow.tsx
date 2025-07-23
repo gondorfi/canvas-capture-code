@@ -81,7 +81,7 @@ export const TransactionFlow: React.FC<TransactionFlowProps> = ({ className = ''
   const displayDepositAmount = isUserInputtingDeposit ? transactionData.depositAmount : animatedDepositAmount;
 
   return (
-    <section className={`${className} absolute bottom-10 left-1/2 transform -translate-x-1/2`} aria-label="Transaction flow visualization">
+    <section className={`${className} absolute bottom-10 left-1/2 transform -translate-x-1/2`} style={{ marginBottom: '40px' }} aria-label="Transaction flow visualization">
       <div className="inline-flex items-center gap-[41px] w-[567px] h-[116px] bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/15 transition-all duration-300 p-5 rounded-[20px] shadow-2xl shadow-black/20 hover:shadow-white/10 hover:shadow-lg max-md:w-[90vw] max-md:h-auto max-md:gap-[25px] max-md:flex-col max-md:p-[15px] max-sm:gap-[15px] max-sm:p-3">
         
         {/* Deposit Section */}
