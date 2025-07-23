@@ -14,12 +14,23 @@ const Index = () => {
 
   return (
     <main className="w-full min-h-screen relative bg-white overflow-hidden px-10 py-10">
-      <div className="w-[calc(100vw-80px)] h-[calc(100vh-80px)] relative bg-gray-900 rounded-[30px] overflow-hidden p-10" style={{
-        backgroundImage: "url('https://api.builder.io/api/v1/image/assets/TEMP/76df173f9b571f830a99295bba92a018e76d7e48?width=2720')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}>
+      <div className="w-[calc(100vw-80px)] h-[calc(100vh-80px)] relative rounded-[30px] overflow-hidden p-10">
+        {/* Background video */}
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/background-video.mp4" type="video/mp4" />
+        </video>
+        
+        {/* Black overlay with 40% opacity */}
+        <div className="absolute inset-0 bg-black bg-opacity-40 rounded-[30px]"></div>
+        
+        {/* Content wrapper */}
+        <div className="relative z-10 w-full h-full">
         
         {/* Header */}
         <Header />
@@ -35,6 +46,7 @@ const Index = () => {
 
         {/* Transaction Flow */}
         <TransactionFlow />
+        </div>
       </div>
     </main>
   );
