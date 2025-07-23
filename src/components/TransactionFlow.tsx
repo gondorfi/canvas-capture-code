@@ -16,7 +16,7 @@ export const TransactionFlow: React.FC<TransactionFlowProps> = ({ className = ''
   const [transactionData, setTransactionData] = useState<TransactionData>({
     depositAmount: 200.16,
     borrowAmount: 130.10,
-    depositAsset: 'Yes shares',
+    depositAsset: '"Yes" Shares',
     borrowAsset: 'USDC'
   });
 
