@@ -16,33 +16,6 @@ export const DescriptionSection: React.FC<DescriptionSectionProps> = ({ classNam
         <p className="mb-4">
           From loans to leverage, to new DeFi primitives like perps, insurance, indexes and parlays.
         </p>
-        <p className="space-x-1">
-          <span>We are</span>
-          <button 
-            onClick={() => handleLinkClick('raising')}
-            className="underline hover:text-blue-200 transition-colors cursor-pointer"
-            aria-label="Learn about our fundraising"
-          >
-            raising
-          </button>
-          <span>an angel round,</span>
-          <button 
-            onClick={() => handleLinkClick('hiring')}
-            className="underline hover:text-blue-200 transition-colors cursor-pointer"
-            aria-label="View open positions"
-          >
-            hiring
-          </button>
-          <span>and</span>
-          <button 
-            onClick={() => handleLinkClick('launching')}
-            className="underline hover:text-blue-200 transition-colors cursor-pointer"
-            aria-label="Learn about our MVP launch"
-          >
-            launching
-          </button>
-          <span>an MVP soon.</span>
-        </p>
       </div>
     </section>
   );
