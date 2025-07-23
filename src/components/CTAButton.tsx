@@ -23,7 +23,7 @@ export const CTAButton: React.FC<CTAButtonProps> = ({ className = '', onClick })
           onClick={handleClick}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
-          className="flex w-[215px] h-[60px] items-center cursor-pointer bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/20 hover:backdrop-blur-2xl transition-all duration-300 pl-[45px] pr-2.5 py-2.5 rounded-[130px] shadow-2xl shadow-black/20 hover:shadow-white/10 hover:shadow-lg max-md:w-[180px] max-md:h-[50px] max-md:pl-[35px] max-md:pr-2 max-md:py-2 max-sm:w-40 max-sm:h-[45px] max-sm:text-base gap-8"
+          className="flex w-[215px] h-[60px] justify-between items-center cursor-pointer bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/20 hover:backdrop-blur-2xl transition-all duration-300 pl-[45px] pr-2.5 py-2.5 rounded-[130px] shadow-2xl shadow-black/20 hover:shadow-white/10 hover:shadow-lg max-md:w-[180px] max-md:h-[50px] max-md:pl-[35px] max-md:pr-2 max-md:py-2 max-sm:w-40 max-sm:h-[45px] max-sm:text-base"
           aria-label="Launch the application"
         >
       <div className="flex items-center gap-1.5">
