@@ -12,7 +12,7 @@ export const DescriptionSection: React.FC<DescriptionSectionProps> = ({ classNam
 
   return (
     <section className={`text-center ${className}`}>
-            <div className="w-[642px] text-white text-center text-base font-normal leading-[22.4px] absolute h-[20px] left-1/2 transform -translate-x-1/2 top-[354px] max-md:w-[85%] max-md:text-[15px] max-md:h-auto max-md:top-[280px] max-sm:text-sm max-sm:top-[200px]">
+            <div className="w-[642px] text-white text-center text-base font-normal leading-[22.4px] absolute h-[20px] left-1/2 transform -translate-x-1/2 top-[354px] max-md:w-[85%] max-md:text-[15px] max-md:h-auto max-md:top-[0px] max-sm:text-sm max-sm:top-[0px]">
         <p className="mb-4">
           Building a DeFi layer for prediction markets.
         </p>
