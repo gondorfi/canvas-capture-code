@@ -14,7 +14,7 @@ export const DescriptionSection: React.FC<DescriptionSectionProps> = ({ classNam
     <section className={`text-center ${className}`}>
       <div className="w-[642px] text-white text-center text-base font-normal leading-[22.4px] absolute h-[88px] left-1/2 transform -translate-x-1/2 top-[354px] max-md:w-[85%] max-md:text-[15px] max-md:h-auto max-md:top-[280px] max-sm:text-sm max-sm:top-[200px]">
         <p className="mb-4">
-          From loans to leverage, to new DeFi primitives like perps, insurance, indexes and parlays.
+          Building a DeFi layer for prediction markets.
         </p>
       </div>
     </section>
