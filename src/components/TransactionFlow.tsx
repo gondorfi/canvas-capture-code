@@ -112,6 +112,7 @@ export const TransactionFlow: React.FC<TransactionFlowProps> = ({ className = ''
                 value={displayDepositAmount}
                 onChange={(e) => handleDepositChange(e.target.value)}
                 onFocus={handleDepositFocus}
+                onBlur={() => setIsUserInputtingDeposit(false)}
                 className="bg-transparent text-white text-left text-2xl font-medium max-sm:text-xl border-none outline-none w-full [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                 step="0.01"
               />
@@ -167,6 +168,7 @@ export const TransactionFlow: React.FC<TransactionFlowProps> = ({ className = ''
                 value={transactionData.borrowAmount}
                 onChange={(e) => handleBorrowChange(e.target.value)}
                 onFocus={handleBorrowFocus}
+                onBlur={() => setIsUserInputtingBorrow(false)}
                 className="bg-transparent text-white text-right text-2xl font-medium max-sm:text-xl border-none outline-none w-full [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                 step="0.01"
               />
