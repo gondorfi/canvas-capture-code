@@ -8,7 +8,7 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ className = '' }) => {
   return (
-    <header className={`absolute z-10 w-full ${className}`}>
+    <header className={`relative z-10 w-full ${className}`}>
       {/* Logo */}
       <div className="absolute left-1/2 transform -translate-x-1/2 top-10">
         <img
